@@ -5,6 +5,16 @@ var height = 0
 var width = 0
 var vidas = 3
 var tempo = 10 //segundos
+var nivel = window.location.search.replace('?', '') //recupera o nivel contido na url
+var criaMosquitoTempo  = 1500
+
+if(nivel === 'normal'){
+    criaMosquitoTempo  = 1500
+}else if(nivel === 'dificil'){
+    criaMosquitoTempo  = 1000
+}else if(nivel === 'expert'){
+    criaMosquitoTempo  = 750
+}
 
 function ajustaTamanhoPalco(){    //Palco com tamanho dinâmico
     height = window.innerHeight
@@ -13,7 +23,6 @@ function ajustaTamanhoPalco(){    //Palco com tamanho dinâmico
 }
 
 ajustaTamanhoPalco()
-// document.write("<br>"+height+" | "+width)
 
 var cronometro = setInterval(function(){
         if(tempo == 0){
@@ -27,9 +36,7 @@ var cronometro = setInterval(function(){
         
     }, 1000);
 
-
 function posicaoRandomica(){
-
     //remover o mosquito anterior, caso exista.
     if(document.getElementById('mosquito')){
         document.getElementById('mosquito').remove()
@@ -45,7 +52,6 @@ function posicaoRandomica(){
         }        
     }
     
-
     var posicaoX = Math.floor(Math.random() * width) - 90
     var posicaoY = Math.floor(Math.random() * height) - 90
     

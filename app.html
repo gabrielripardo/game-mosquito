@@ -6,14 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="./jogo.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">    
 </head>
 <body onresize="ajustaTamanhoPalco()">    
     
+    <div class="painel">
+        <div class="vidas">
+            <img id="vida1" src="imagens/coracao_cheio.png">
+            <img id="vida2" src="imagens/coracao_cheio.png">
+            <img id="vida3" src="imagens/coracao_cheio.png">
+        </div>
+        <div class="cronometro">Tempo restante: <span id="segundos"></span></div>
+    </div>
     <script>
-        setInterval(function(){            
+        document.getElementById("segundos").innerHTML = tempo
+
+        var criaMosq = setInterval(function(){            
             //document.body.lastChild.remove()
-            posicaoRandomica();            
+            posicaoRandomica();                
         }, 1000);
     </script>
 </body>

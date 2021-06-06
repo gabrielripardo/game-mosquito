@@ -3,6 +3,8 @@
 
 var height = 0
 var width = 0
+var vidas = 3
+var tempo = 10 //segundos
 
 function ajustaTamanhoPalco(){    //Palco com tamanho dinâmico
     height = window.innerHeight
@@ -13,12 +15,34 @@ function ajustaTamanhoPalco(){    //Palco com tamanho dinâmico
 ajustaTamanhoPalco()
 // document.write("<br>"+height+" | "+width)
 
+var cronometro = setInterval(function(){
+        if(tempo == 0){
+            clearInterval(cronometro)
+            clearInterval(criaMosq)
+            //window.alert("Você venceu!")
+            window.location.href = "vitoria.html"
+        }        
+        tempo--;
+        document.getElementById("segundos").innerHTML = tempo        
+        
+    }, 1000);
+
 
 function posicaoRandomica(){
 
     //remover o mosquito anterior, caso exista.
     if(document.getElementById('mosquito')){
         document.getElementById('mosquito').remove()
+
+        if(vidas == 0){            
+            window.location.href = "game_over.html"
+            clearInterval(cronometro)
+            clearInterval(criaMosq)            
+            //window.location.href = "game_over.html"
+        }else if(vidas > 0){
+            document.getElementById('vida'+vidas).src = "imagens/coracao_vazio.png"
+            vidas--;
+        }        
     }
     
 
@@ -38,6 +62,9 @@ function posicaoRandomica(){
     mosquito.style.left = posicaoX+'px'
     mosquito.style.top = posicaoY+'px'
     mosquito.id = 'mosquito'
+    mosquito.onclick = function(){
+        this.remove()
+    }
 
     document.body.appendChild(mosquito)
 

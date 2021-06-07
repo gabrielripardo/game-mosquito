@@ -4,9 +4,10 @@
 var height = 0
 var width = 0
 var vidas = 3
-var tempo = 10 //segundos
+var tempo = 30 //segundos
 var nivel = window.location.search.replace('?', '') //recupera o nivel contido na url
-var criaMosquitoTempo  = 1500
+var criaMosquitoTempo = 1500
+var capturados = 0
 
 if(nivel === 'normal'){
     criaMosquitoTempo  = 1500
@@ -29,7 +30,7 @@ var cronometro = setInterval(function(){
             clearInterval(cronometro)
             clearInterval(criaMosq)
             //window.alert("Você venceu!")
-            window.location.href = "vitoria.html"
+            window.location.href = "vitoria.html?"+capturados
         }        
         tempo--;
         document.getElementById("segundos").innerHTML = tempo        
@@ -42,15 +43,15 @@ function posicaoRandomica(){
         document.getElementById('mosquito').remove()
 
         if(vidas == 0){            
-            window.location.href = "game_over.html"
+            window.location.href = "game_over.html?"+capturados
             clearInterval(cronometro)
             clearInterval(criaMosq)            
             //window.location.href = "game_over.html"
         }else if(vidas > 0){
             document.getElementById('vida'+vidas).src = "imagens/coracao_vazio.png"
             vidas--;
-        }        
-    }
+        }     
+    }    
     
     var posicaoX = Math.floor(Math.random() * width) - 90
     var posicaoY = Math.floor(Math.random() * height) - 90
@@ -69,6 +70,8 @@ function posicaoRandomica(){
     mosquito.style.top = posicaoY+'px'
     mosquito.id = 'mosquito'
     mosquito.onclick = function(){
+        capturados++
+        document.getElementById('m-capturados').innerHTML = capturados
         this.remove()
     }
 

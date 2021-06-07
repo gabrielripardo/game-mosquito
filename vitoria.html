@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">    
 </head>
 <body>    
     <div class="container">
@@ -14,6 +14,29 @@
             <div class="col">
                 <div class="d-flex justify-content-center">
                     <img src="imagens/vitoria.png">
+                </div>                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="d-flex justify-content-center">
+                    <p id="total-capturados">
+                        Você capturou 
+                        <span id="total-c">
+                            <script>
+                                var capturados = window.location.search.replace('?', '')    
+                                document.write(capturados)
+                            </script>
+                        </span>
+                        <script>
+                            if(capturados == 1){
+                                document.write("mosquito")
+                            }else{
+                                document.write("mosquitos")
+                            }
+                        </script>                    
+                    </p>
                 </div>                
             </div>
         </div>

@@ -74,11 +74,15 @@ function posicaoRandomica(){
         document.getElementById('m-capturados').innerHTML = capturados
         //this.style.transition = 'width 0.2s'
         this.style.transform = 'rotate(160deg)'
-        setTimeout(function(){mosquito.remove}, 100)
+        // this.remove()
+        setTimeout(function(){
+            // document.getElementById('mosquito').remove()
+            mosquito.remove()    
+        }, 500)
+        
     }
 
-    document.body.appendChild(mosquito)
-
+    document.body.appendChild(mosquito)    
     console.log(ladoAleatorio())
 }
 

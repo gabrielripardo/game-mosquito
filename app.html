@@ -21,10 +21,11 @@
         <audio id="caputured-sound" src="./sounds/start-game.wav" autoplay></audio>       
     </div>
     <script>
+        var criaMosq;
         document.getElementById("segundos").innerHTML = tempo
         setTimeout(function(){iniciarJogo()}, 1500)
         function iniciarJogo(){
-            var criaMosq = setInterval(function(){            
+            criaMosq = setInterval(function(){            
                 //document.body.lastChild.remove()
                 posicaoRandomica();                
             }, criaMosquitoTempo );

@@ -11,6 +11,7 @@
         function iniciarJogo(){
             var nivel = document.getElementById('nivel').value
             console.log(nivel)
+            //document.getElementById('sound-click').play()
             if(nivel === ''){
                 alert('Selecione um nível')
                 return false
@@ -43,7 +44,7 @@
                 </div>                
             </div>
         </div>
-
+        <!-- <audio id="sound-click" src="./sounds/click-effect.wav" controls></audio> -->
         <div class="row">
             <div class="col">
                 <div class="d-flex justify-content-center">

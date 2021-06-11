@@ -17,15 +17,18 @@
             <img id="vida2" src="imagens/coracao_cheio.png">
             <img id="vida3" src="imagens/coracao_cheio.png">
         </div>
-        <div class="cronometro">Tempo restante: <span id="segundos"></span></div>       
+        <div class="cronometro">Tempo restante: <span id="segundos"></span></div>
+        <audio id="caputured-sound" src="./sounds/start-game.wav" autoplay></audio>       
     </div>
     <script>
         document.getElementById("segundos").innerHTML = tempo
-
-        var criaMosq = setInterval(function(){            
-            //document.body.lastChild.remove()
-            posicaoRandomica();                
-        }, criaMosquitoTempo );
+        setTimeout(function(){iniciarJogo()}, 1500)
+        function iniciarJogo(){
+            var criaMosq = setInterval(function(){            
+                //document.body.lastChild.remove()
+                posicaoRandomica();                
+            }, criaMosquitoTempo );
+        }        
     </script>
 </body>
 </html>

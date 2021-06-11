@@ -70,6 +70,8 @@ function posicaoRandomica(){
     mosquito.style.top = posicaoY+'px'
     mosquito.id = 'mosquito'
     mosquito.onclick = function(){
+        document.getElementById('caputured-sound').src='./sounds/click-effect.wav'
+        document.getElementById('caputured-sound').play()
         capturados++
         document.getElementById('m-capturados').innerHTML = capturados
         //this.style.transition = 'width 0.2s'
@@ -78,8 +80,7 @@ function posicaoRandomica(){
         setTimeout(function(){
             // document.getElementById('mosquito').remove()
             mosquito.remove()    
-        }, 500)
-        
+        }, 500)        
     }
 
     document.body.appendChild(mosquito)    

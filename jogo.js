@@ -39,18 +39,18 @@ var cronometro = setInterval(function(){
 
 function posicaoRandomica(){
     //remover o mosquito anterior, caso exista.
-    if(document.getElementById('mosquito')){
-        document.getElementById('mosquito').remove()
-
-        if(vidas == 0){            
+    // || vidas == 0
+    console.log(`Vidas: ${vidas}`)
+    if(document.getElementById('mosquito') || vidas == 0){        
+        document.getElementById(`vida${vidas}`).src = "imagens/coracao_vazio.png"            
+        vidas--;        
+        if(vidas == 0){                        
             window.location.href = "game_over.html?"+capturados
             clearInterval(cronometro)
             clearInterval(criaMosq)            
             //window.location.href = "game_over.html"
-        }else if(vidas > 0){
-            document.getElementById('vida'+vidas).src = "imagens/coracao_vazio.png"
-            vidas--;
-        }     
+        }
+        document.getElementById('mosquito').remove()
     }    
     
     var posicaoX = Math.floor(Math.random() * width) - 90

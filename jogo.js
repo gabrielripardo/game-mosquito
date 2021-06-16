@@ -33,9 +33,8 @@ var cronometro = setInterval(function(){
             //window.alert("Você venceu!")
             window.location.href = "vitoria.html?"+capturados
         }        
-        tempo--;
         document.getElementById("segundos").innerHTML = tempo        
-        
+        tempo--;                
     }, 1000);
 
 function posicaoRandomica(){    

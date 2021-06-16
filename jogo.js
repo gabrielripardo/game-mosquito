@@ -8,6 +8,7 @@ var tempo = 30 //segundos
 var nivel = window.location.search.replace('?', '') //recupera o nivel contido na url
 var criaMosquitoTempo = 1500
 var capturados = 0
+var notCaptured = false
 
 if(nivel === 'normal'){
     criaMosquitoTempo  = 1500
@@ -37,11 +38,9 @@ var cronometro = setInterval(function(){
         
     }, 1000);
 
-function posicaoRandomica(){
-    //remover o mosquito anterior, caso exista.
-    // || vidas == 0
+function posicaoRandomica(){    
     console.log(`Vidas: ${vidas}`)
-    if(document.getElementById('mosquito') || vidas == 0){        
+    if(notCaptured || vidas == 0){        
         document.getElementById(`vida${vidas}`).src = "imagens/coracao_vazio.png"            
         vidas--;        
         if(vidas == 0){                        
@@ -50,9 +49,10 @@ function posicaoRandomica(){
             clearInterval(criaMosq)            
             //window.location.href = "game_over.html"
         }
-        document.getElementById('mosquito').remove()
-    }    
-    
+        document.getElementById('mosquito').remove()     
+    }
+    notCaptured = true //não foi capturado ainda
+
     var posicaoX = Math.floor(Math.random() * width) - 90
     var posicaoY = Math.floor(Math.random() * height) - 90
     
@@ -70,6 +70,7 @@ function posicaoRandomica(){
     mosquito.style.top = posicaoY+'px'
     mosquito.id = 'mosquito'
     mosquito.onclick = function(){
+        notCaptured = false; //foi capturado
         document.getElementById('caputured-sound').src='./sounds/click-effect.wav'
         document.getElementById('caputured-sound').play()
         capturados++

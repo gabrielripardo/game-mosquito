@@ -75,7 +75,7 @@ function posicaoRandomica(){
         capturados++
         document.getElementById('m-capturados').innerHTML = capturados
         //this.style.transition = 'width 0.2s'
-        this.style.transform = 'rotate(160deg)'
+        this.style.transform = 'rotate(180deg)'
         // this.remove()
         setTimeout(function(){
             // document.getElementById('mosquito').remove()

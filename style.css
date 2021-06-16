@@ -69,3 +69,18 @@ body{
 #nivel{
     margin-bottom: 20px;
 }
+
+#btn-iniciar{
+    transition-property: width; 
+    transition-property: height; 
+    transition-duration: 2s; 
+    opacity: 0.8;
+    transition: 0.3s;
+    width: 250px;
+    height: 50px;
+}
+#btn-iniciar:hover{
+    opacity: 1;
+    width: 500px;    
+    height: 60px;
+}

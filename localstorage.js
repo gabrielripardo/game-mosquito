@@ -16,14 +16,16 @@ class DbPontuacao{
         let pontuacoes = Array()
 
         for(let i=0; i<=this.realLength; i++){
-            pontuacoes.push(i, JSON.parse(localStorage.getItem(i+1)))
+            console.log(`i: ${i}`)
+            console.log(JSON.parse(localStorage.getItem(8)))
+            //pontuacoes.push(i, JSON.parse(localStorage.getItem(i+1)))
         }
 
         return pontuacoes
     }    
     inserir(objeto){
-        let currentId = this.getProxId()
-        localStorage.setItem(currentId, objeto)
+        let currentId = this.getProxId()        
+        localStorage.setItem(currentId, JSON.stringify(objeto))
         localStorage.setItem("id", currentId) //atualiza key id
         console.log("ID: ", currentId) 
     }
@@ -36,8 +38,8 @@ class DbPontuacao{
 }
 
 let db = new DbPontuacao()
-let pos = {posicao: 1, data: "19/06/2021", nivel: "Fácil", pontos: 18}
-db.inserir(JSON.stringify(pos))
-//db.limpar()
-console.log(db.listar())
+// let pos = {posicao: 1, data: "19/06/2021", nivel: "Fácil", pontos: 18}
+// db.inserir(JSON.stringify(pos))
+// db.limpar()
+//console.log(db.listar())
 export { DbPontuacao };

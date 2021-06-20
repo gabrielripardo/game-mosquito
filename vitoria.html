@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="score.js" type="module"></script>
 </head>
 <body>    
     <div class="container">
@@ -26,7 +27,7 @@
                         Você capturou 
                         <span id="total-c">
                             <script>
-                                var capturados = window.location.search.replace('?', '')    
+                                var capturados = window.location.search.replace('?', '').split('&')[0]    
                                 document.write(capturados)
                             </script>
                         </span>

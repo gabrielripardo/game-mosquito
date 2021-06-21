@@ -15,10 +15,8 @@ class DbPontuacao{
     listar(){
         let pontuacoes = Array()
 
-        for(let i=0; i<=this.realLength; i++){
-            console.log(`i: ${i}`)
-            console.log(JSON.parse(localStorage.getItem(8)))
-            //pontuacoes.push(i, JSON.parse(localStorage.getItem(i+1)))
+        for(let i=0; i<=this.realLength; i++){                        
+            pontuacoes.push(i, JSON.parse(localStorage.getItem(i+1)))
         }
 
         return pontuacoes

@@ -13,9 +13,9 @@ var notCaptured = false
 if(nivel === 'normal'){
     criaMosquitoTempo  = 1500
 }else if(nivel === 'dificil'){
-    criaMosquitoTempo  = 1000
+    criaMosquitoTempo  = 1200
 }else if(nivel === 'expert'){
-    criaMosquitoTempo  = 750
+    criaMosquitoTempo  = 900
 }
 
 function ajustaTamanhoPalco(){    //Palco com tamanho dinâmico
@@ -78,13 +78,11 @@ function posicaoRandomica(){
         this.style.transform = 'rotate(180deg)'
         // this.remove()
         setTimeout(function(){
-            // document.getElementById('mosquito').remove()
-            mosquito.remove()    
-        }, 500)        
-    }
-
-    document.body.appendChild(mosquito)    
-    console.log(ladoAleatorio())
+            document.getElementById('mosquito').remove()
+            //mosquito.remove()                   
+        }, criaMosquitoTempo/6)        
+    }      
+    document.body.appendChild(mosquito)                  
 }
 
 function tamanhoMosquito(){

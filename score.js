@@ -1,6 +1,15 @@
 import { DbPontuacao } from './localstorage.js';
 let pontos = null
 let nivel = null
+
+if(window.location.search != ""){ //Páginas: vitoria.html e game_over.html
+    registrarPontuacao()
+    console.log(window.location.search)    
+}else{ //Página score.html
+    document.getElementById("btn_limpar").addEventListener("click", limparPontuacoes);
+    listarPontuacoes()
+}
+
 function registrarPontuacao(){
     pontos = window.location.search.replace('?', '').split('&')[0] //recupera o nivel contido na url
     nivel = window.location.search.replace('?', '').split('&')[1] //recupera o nivel contido na url
@@ -12,10 +21,9 @@ function registrarPontuacao(){
     let pontuacao = {pontos, nivel, date}
     console.log(pontuacao)
     let db = new DbPontuacao()
-    //db.inserir(pontuacao)
+    db.inserir(pontuacao)
 }
 
-document.getElementById("btn_limpar").addEventListener("click", limparPontuacoes);
 
 function limparPontuacoes(){
     let db = new DbPontuacao()
@@ -23,7 +31,38 @@ function limparPontuacoes(){
     console.log("Limpando pontuações...")
 }
 
-console.log(`P: ${pontos} | N: ${nivel}`)
-if(pontos != null && nivel != null){
-    registrarPontuacao()
+function listarPontuacoes(){
+    let db = new DbPontuacao()
+    
+    if(db.getProxId() >= 1){
+        let lista = db.listar()
+        console.log(db.listar())   
+        console.log(typeof(lista))     
+
+        let cont = 1
+
+        lista.forEach((element) => {
+            let linha = document.createElement('tr') 
+            //if(element.) ganhou == true {class='table-success'} : {class='table-danger'}
+            let posicao = document.createElement('td')
+            posicao.innerHTML = cont+'º'
+            let date = document.createElement('td')
+            date.innerHTML = element.date
+            let nivel = document.createElement('td')
+            nivel.innerHTML = element.nivel
+            let pontos = document.createElement('td')
+            pontos.innerHTML = element.pontos
+            
+            linha.appendChild(posicao)              
+            linha.appendChild(date)
+            linha.appendChild(nivel)
+            linha.appendChild(pontos)
+            document.getElementById('t-content').appendChild(linha)                   
+            cont++
+        });
+
+        for(let i=1; i<= lista.length; i++){
+            
+        }        
+    }
 }

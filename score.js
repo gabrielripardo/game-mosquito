@@ -39,9 +39,10 @@ function listarPontuacoes(){
         console.log(db.listar())   
         console.log(typeof(lista))     
 
-        let cont = 1
-
-        lista.forEach((element) => {
+        let cont = 1        
+        let listaSorted = lista.sort((a, b) => b.pontos - a.pontos)
+        console.log(`lista sorted: ${listaSorted}`)
+        listaSorted.forEach((element) => {
             let linha = document.createElement('tr') 
             //if(element.) ganhou == true {class='table-success'} : {class='table-danger'}
             let posicao = document.createElement('td')
@@ -50,7 +51,7 @@ function listarPontuacoes(){
             date.innerHTML = element.date
             let nivel = document.createElement('td')
             nivel.innerHTML = element.nivel
-            let pontos = document.createElement('td')
+            let pontos = document.createElement('td')            
             pontos.innerHTML = element.pontos
             
             linha.appendChild(posicao)              
@@ -59,10 +60,6 @@ function listarPontuacoes(){
             linha.appendChild(pontos)
             document.getElementById('t-content').appendChild(linha)                   
             cont++
-        });
-
-        for(let i=1; i<= lista.length; i++){
-            
-        }        
+        });   
     }
 }

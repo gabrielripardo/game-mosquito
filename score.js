@@ -1,6 +1,7 @@
 import { DbPontuacao } from './localstorage.js';
 let pontos = null
 let nivel = null
+let ganhou
 
 if(window.location.search != ""){ //Páginas: vitoria.html e game_over.html
     registrarPontuacao()
@@ -13,12 +14,13 @@ if(window.location.search != ""){ //Páginas: vitoria.html e game_over.html
 function registrarPontuacao(){
     pontos = window.location.search.replace('?', '').split('&')[0] //recupera o nivel contido na url
     nivel = window.location.search.replace('?', '').split('&')[1] //recupera o nivel contido na url
+    ganhou = window.location.search.replace('?', '').split('&')[2] //recupera o nivel contido na url
     
     var today = new Date();
     var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
 
     console.log(`Pontos: ${pontos} | Nível: ${nivel} | Date: ${date}`)
-    let pontuacao = {pontos, nivel, date}
+    let pontuacao = {pontos, nivel, date, ganhou}
     console.log(pontuacao)
     let db = new DbPontuacao()
     db.inserir(pontuacao)
@@ -43,16 +45,16 @@ function listarPontuacoes(){
         let listaSorted = lista.sort((a, b) => b.pontos - a.pontos)
         console.log(`lista sorted: ${listaSorted}`)
         listaSorted.forEach((element) => {
-            let linha = document.createElement('tr') 
-            //if(element.) ganhou == true {class='table-success'} : {class='table-danger'}
+            let linha = document.createElement('tr')             
             let posicao = document.createElement('td')
             posicao.innerHTML = cont+'º'
             let date = document.createElement('td')
             date.innerHTML = element.date
             let nivel = document.createElement('td')
             nivel.innerHTML = element.nivel
-            let pontos = document.createElement('td')            
+            let pontos = document.createElement('td')                        
             pontos.innerHTML = element.pontos
+            pontos.className = element.ganhou == 'true' ? 'bg-success' : 'bg-danger'
             
             linha.appendChild(posicao)              
             linha.appendChild(date)

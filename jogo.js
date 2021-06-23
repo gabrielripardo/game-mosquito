@@ -31,7 +31,7 @@ var cronometro = setInterval(function(){
             clearInterval(cronometro)
             clearInterval(criaMosq)
             //window.alert("Você venceu!")
-            window.location.href = "vitoria.html?"+capturados+'&'+nivel
+            window.location.href = "vitoria.html?"+capturados+'&'+nivel+'&'+'true'
         }        
         document.getElementById("segundos").innerHTML = tempo        
         tempo--;                
@@ -43,7 +43,7 @@ function posicaoRandomica(){
         document.getElementById(`vida${vidas}`).src = "imagens/coracao_vazio.png"            
         vidas--;        
         if(vidas == 0){                        
-            window.location.href = "game_over.html?"+capturados+'&'+nivel
+            window.location.href = "game_over.html?"+capturados+'&'+nivel+'&'+'false'
             clearInterval(cronometro)
             clearInterval(criaMosq)            
             //window.location.href = "game_over.html"

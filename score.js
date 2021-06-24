@@ -54,7 +54,7 @@ function listarPontuacoes(){
             nivel.innerHTML = element.nivel
             let pontos = document.createElement('td')                        
             pontos.innerHTML = element.pontos
-            pontos.className = element.ganhou == 'true' ? 'bg-success' : 'bg-danger'
+            pontos.className = element.ganhou == 'true' ? 'bg-success' : 'bg-secondary'
             
             linha.appendChild(posicao)              
             linha.appendChild(date)

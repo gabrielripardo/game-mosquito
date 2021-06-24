@@ -26,16 +26,6 @@ function ajustaTamanhoPalco(){    //Palco com tamanho dinâmico
 
 ajustaTamanhoPalco()
 
-var cronometro = setInterval(function(){
-        if(tempo == 0){
-            clearInterval(cronometro)
-            clearInterval(criaMosq)
-            //window.alert("Você venceu!")
-            window.location.href = "vitoria.html?"+capturados+'&'+nivel+'&'+'true'
-        }        
-        document.getElementById("segundos").innerHTML = tempo        
-        tempo--;                
-    }, 1000);
 
 function posicaoRandomica(){    
     console.log(`Vidas: ${vidas}`)
@@ -120,7 +110,8 @@ function iniciarContagem(){
         document.getElementById('segRegresivo').appendChild(segundo)    
         if(seg == 0){
             clearInterval(cronomInicial)
-            document.getElementById('segRegresivo').remove()    
+            document.getElementById('segRegresivo').remove() 
+            document.getElementById('caputured-sound').play()
             iniciarJogo()    
         }
         seg--;    
@@ -128,11 +119,22 @@ function iniciarContagem(){
 }
 
 
-//setTimeout(function(){iniciarJogo()}, 1500)
+document.getElementById("segundos").innerHTML = tempo
 function iniciarJogo(){
     var criaMosq;
-    document.getElementById("segundos").innerHTML = tempo
+    
     criaMosq = setInterval(function(){                        
         posicaoRandomica();                
     }, criaMosquitoTempo );
+
+    var cronometro = setInterval(function(){
+        if(tempo <= 0){
+            clearInterval(cronometro)
+            clearInterval(criaMosq)
+            //window.alert("Você venceu!")
+            window.location.href = "vitoria.html?"+capturados+'&'+nivel+'&'+'true'
+        }        
+        document.getElementById("segundos").innerHTML = tempo        
+        tempo--;                
+    }, 1000);
 } 

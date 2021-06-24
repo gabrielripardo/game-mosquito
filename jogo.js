@@ -111,3 +111,28 @@ function ladoAleatorio(){
     }
 }
 
+function iniciarContagem(){
+    let seg = 3
+    let segundo = document.createElement('p')    
+    
+    let cronomInicial = setInterval(function(){    
+        segundo.innerHTML = seg    
+        document.getElementById('segRegresivo').appendChild(segundo)    
+        if(seg == 0){
+            clearInterval(cronomInicial)
+            document.getElementById('segRegresivo').remove()    
+            iniciarJogo()    
+        }
+        seg--;    
+    }, 1000)
+}
+
+
+//setTimeout(function(){iniciarJogo()}, 1500)
+function iniciarJogo(){
+    var criaMosq;
+    document.getElementById("segundos").innerHTML = tempo
+    criaMosq = setInterval(function(){                        
+        posicaoRandomica();                
+    }, criaMosquitoTempo );
+} 

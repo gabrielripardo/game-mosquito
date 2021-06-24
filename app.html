@@ -14,7 +14,7 @@
     </style>
 </head>
 <body onresize="ajustaTamanhoPalco()">    
-    
+    <div id="segRegresivo"></div>
     <div class="painel">
         <div class="capturados">Capturados: <span id="m-capturados"></span></div>
         <div class="vidas">
@@ -26,14 +26,7 @@
         <audio id="caputured-sound" src="./sounds/start-game.wav" autoplay></audio>       
     </div>
     <script>
-        var criaMosq;
-        document.getElementById("segundos").innerHTML = tempo
-        setTimeout(function(){iniciarJogo()}, 1500)
-        function iniciarJogo(){
-            criaMosq = setInterval(function(){                        
-                posicaoRandomica();                
-            }, criaMosquitoTempo );
-        }        
+       iniciarContagem()       
     </script>
 </body>
 </html>

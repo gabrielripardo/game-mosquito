@@ -19,6 +19,12 @@ function registrarPontuacao(){
     var today = new Date();
     var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
 
+    switch(nivel){
+        case '1': nivel = "Normal"; break;
+        case '2': nivel = "Difícil"; break;
+        case '3': nivel = "Expert"; 
+    }
+
     console.log(`Pontos: ${pontos} | Nível: ${nivel} | Date: ${date}`)
     let pontuacao = {pontos, nivel, date, ganhou}
     console.log(pontuacao)

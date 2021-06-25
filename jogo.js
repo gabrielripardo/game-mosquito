@@ -119,8 +119,9 @@ function iniciarContagem(){
 }
 
 
-document.getElementById("segundos").innerHTML = tempo
+
 function iniciarJogo(){
+    document.getElementById("segundos").innerHTML = tempo
     var criaMosq;
     
     criaMosq = setInterval(function(){                        

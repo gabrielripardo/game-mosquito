@@ -29,8 +29,9 @@ function registrarPontuacao(){
 
 function limparPontuacoes(){
     let db = new DbPontuacao()
-    db.limpar()
+    db.limpar()    
     console.log("Limpando pontuações...")
+    window.location.reload()
 }
 
 function listarPontuacoes(){

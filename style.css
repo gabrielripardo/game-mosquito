@@ -27,11 +27,7 @@ body{
 }
 
 .painel{    
-    /* width: 170px;*/
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-around;
+    /* width: 170px;*/        
     padding: 10px; 
     bottom: 0px;
     border-top: solid 2px #fff;
@@ -44,11 +40,11 @@ body{
 }
 
 .vidas{
-    width: 180px;
+    /* width: 180px;
     display: flex;
     flex-direction: row;  
     align-content: center;
-    justify-content: space-around;
+    justify-content: space-around; */
 }
 
 .cronometro #segundos{    

@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mata Mosquito</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">    
-    <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.min.css">
     <script src="./jogo.js"></script>
     <link rel="stylesheet" href="style.css">    
     <style>
@@ -15,29 +13,21 @@
         }
     </style>
 </head>
-<body onresize="ajustaTamanhoPalco()">                
+<body onresize="ajustaTamanhoPalco()">            
     <div class="painel">        
-        <div class="row">
-            <div class="col-2">
-                <div class="capturados">
-                    <span>Capturados:</span>
-                    <span id="m-capturados"></span>
-                </div>
-            </div>
-            <div class="col-7">
-                <div class="vidas">                        
-                    <span>Vidas:</span>
-                    <div id="hearts">
-                        <img id="vida1" src="imagens/coracao_cheio.png">
-                        <img id="vida2" src="imagens/coracao_cheio.png">
-                        <img id="vida3" src="imagens/coracao_cheio.png">            
-                    </div>            
-                </div>        
-            </div>
-            <div class="col-3">
-                <div class="cronometro"><span>Tempo restante:</span> <span id="segundos"></span></div>  
-            </div>
-        </div>                        
+        <div class="capturados">
+            <span>Capturados:</span>
+            <span id="m-capturados"></span>
+        </div>
+        <div class="vidas">                        
+            <span>Vidas:</span>
+            <div id="hearts">
+                <img id="vida1" src="imagens/coracao_cheio.png">
+                <img id="vida2" src="imagens/coracao_cheio.png">
+                <img id="vida3" src="imagens/coracao_cheio.png">            
+            </div>            
+        </div>
+        <div class="cronometro"><span>Tempo restante:</span> <span id="segundos"></span></div>
         <audio id="caputured-sound" src="./sounds/start-game.wav"></audio>       
     </div>
     <div id="segRegresivo"></div>

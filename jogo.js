@@ -104,7 +104,8 @@ function ladoAleatorio(){
 function iniciarContagem(){
     let seg = 3
     let segundo = document.createElement('p')    
-    
+    document.getElementById("segundos").innerHTML = tempo
+    document.getElementById('m-capturados').innerHTML = capturados
     let cronomInicial = setInterval(function(){    
         segundo.innerHTML = seg    
         document.getElementById('segRegresivo').appendChild(segundo)    

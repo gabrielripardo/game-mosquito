@@ -13,20 +13,26 @@
         }
     </style>
 </head>
-<body onresize="ajustaTamanhoPalco()">    
-    <div id="segRegresivo"></div>
-    <div class="painel">
-        <div class="capturados">Capturados: <span id="m-capturados"></span></div>
-        <div class="vidas">
-            <img id="vida1" src="imagens/coracao_cheio.png">
-            <img id="vida2" src="imagens/coracao_cheio.png">
-            <img id="vida3" src="imagens/coracao_cheio.png">
+<body onresize="ajustaTamanhoPalco()">            
+    <div class="painel">        
+        <div class="capturados">
+            <span>Capturados:</span>
+            <span id="m-capturados"></span>
         </div>
-        <div class="cronometro">Tempo restante: <span id="segundos"></span></div>
+        <div class="vidas">                        
+            <span>Vidas:</span>
+            <div id="hearts">
+                <img id="vida1" src="imagens/coracao_cheio.png">
+                <img id="vida2" src="imagens/coracao_cheio.png">
+                <img id="vida3" src="imagens/coracao_cheio.png">            
+            </div>            
+        </div>
+        <div class="cronometro"><span>Tempo restante:</span> <span id="segundos"></span></div>
         <audio id="caputured-sound" src="./sounds/start-game.wav"></audio>       
     </div>
+    <div id="segRegresivo"></div>
     <script>
-       iniciarContagem()       
+    //    iniciarContagem()       
     </script>
 </body>
 </html>

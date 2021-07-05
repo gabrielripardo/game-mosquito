@@ -26,35 +26,46 @@ body{
     transform: scaleX(-1); 
 }
 
-.painel{
-    position: absolute;
-    width: 170px;
-    padding: 10px;
+.painel{    
+    /* width: 170px;*/
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    padding: 10px; 
     bottom: 0px;
-    border-top: solid 1px #fff;
-    background-color: #fff;
-    opacity: 0.7;
+    border-top: solid 2px #fff;
+    background-color: #ccc;
+    font-size: 1.3em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    opacity: 0.9;
+
 }
 
 .vidas{
-    float: left;
+    width: 180px;
+    display: flex;
+    flex-direction: row;  
+    align-content: center;
+    justify-content: space-around;
 }
 
-.cronometro{
-    float: left;
-    font-size: 20px;
-    font-weight: bold;
+.cronometro #segundos{    
+    color: #034f84;
+    font-size: 1.1em;
+    text-shadow: 1px 1px 3px blue;
 }
 
-.capturados{
-    float: left;
-    font-size: 25px;
-    font-weight: bold;
-    padding-bottom: 15px;
+.capturados #m-capturados{    
+    color: #405d27;
+    font-size: 1.2m;
+    text-shadow: 2px 2px 3px green;
+    /* padding-bottom: 15px; */
 }
 
 #total-capturados{
-    padding: 10px 10px 10px 10px;
+    /* padding: 10px 10px 10px 10px; */
     border: 1px solid yellow;
     background-color: aliceblue;
 }

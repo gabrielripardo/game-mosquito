@@ -19,13 +19,10 @@ if(nivel === 'normal'){
 }
 
 function ajustaTamanhoPalco(){    //Palco com tamanho dinâmico
-    height = window.innerHeight
-    width = window.innerWidth
+    height = document.getElementById("palco").clientHeight
+    width = document.getElementById("palco").clientWidth
     console.log(height+" | "+width)
 }
-
-ajustaTamanhoPalco()
-
 
 function posicaoRandomica(){    
     console.log(`Vidas: ${vidas}`)
@@ -54,7 +51,7 @@ function posicaoRandomica(){
     var mosquito = document.createElement('img')
     mosquito.src = "./imagens/mosquito.png"
     mosquito.className = tamanhoMosquito()+' '+ladoAleatorio()
-    mosquito.style.position = 'absolute'
+    mosquito.style.position = 'relative'
     mosquito.style.left = posicaoX+'px'
     mosquito.style.top = posicaoY+'px'
     mosquito.id = 'mosquito'
@@ -72,7 +69,7 @@ function posicaoRandomica(){
             //mosquito.remove()                   
         }, criaMosquitoTempo/6)        
     }      
-    document.body.appendChild(mosquito)                  
+    document.getElementById("palco").appendChild(mosquito)                  
 }
 
 function tamanhoMosquito(){
@@ -102,6 +99,7 @@ function ladoAleatorio(){
 }
 
 function iniciarContagem(){
+    ajustaTamanhoPalco()
     let seg = 3
     let segundo = document.createElement('p')    
     document.getElementById("segundos").innerHTML = tempo

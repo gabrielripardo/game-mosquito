@@ -13,7 +13,7 @@
         }
     </style>
 </head>
-<body onresize="ajustaTamanhoPalco()">            
+<body>            
     <div class="painel">        
         <div class="capturados">
             <span>Capturados:</span>
@@ -30,9 +30,11 @@
         <div class="cronometro"><span>Tempo restante:</span> <span id="segundos"></span></div>
         <audio id="caputured-sound" src="./sounds/start-game.wav"></audio>       
     </div>
-    <div id="segRegresivo"></div>
+    <div onresize="ajustaTamanhoPalco()" id="palco">        
+        <div id="segRegresivo"></div>
+    </div>    
     <script>
-    //    iniciarContagem()       
+       iniciarContagem()       
     </script>
 </body>
 </html>

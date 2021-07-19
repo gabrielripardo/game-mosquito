@@ -2,6 +2,7 @@ body{
     background-image: url(./imagens/bg.jpg);
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
+    margin: 0;
 }
 .mosquito1{
     width: 50px;
@@ -83,10 +84,12 @@ body{
 }
 
 #palco{
-    width: calc(100% - 1px);
+    width: calc(100% - 15px);
     height: calc(100vh - 77px);
-    margin-top: 7px;
-    /* background-color: black; */
+    margin: 7px;
+    border: 3px solid red;    
+    box-sizing: border-box;    
+    background-color: rgba(240, 3, 3, 0.158);
 }
 
 /* #btn-iniciar{
@@ -129,3 +132,17 @@ body{
     height: 50vh;
 }
 
+@media screen and (max-width:600px) {
+    .painel{        
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;        
+        justify-items: center;    
+        /* background-color: red; */        
+    }       
+    
+    #palco{        
+        height: calc(100vh - 130px);     
+        border: 2px solid red;
+    }
+}
